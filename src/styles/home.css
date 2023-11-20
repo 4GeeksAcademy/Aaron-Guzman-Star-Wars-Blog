@@ -1,0 +1,33 @@
+body{
+background-image: url(https://as1.ftcdn.net/v2/jpg/01/02/88/40/1000_F_102884000_9nDhPvgQwwaNgDWbAwUJVR0puNDOMYhL.jpg);
+background-size: cover;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+h1{
+    color: beige;
+}
+
+.card{
+    background-color: rgb(209, 209, 209);
+}
+
+h5, p{
+    border-bottom: solid 1px black;
+}
+
+button{
+    border: 0;
+    background-color: rgb(209, 209, 209);
+}
+
+.buttonContainer:active, button:active{
+    /* background-color: pink; */
+    transform: scale(0.8);
+}
+
+.glow{
+    box-shadow: 0px 0px 9px 4px #747de8;
+}

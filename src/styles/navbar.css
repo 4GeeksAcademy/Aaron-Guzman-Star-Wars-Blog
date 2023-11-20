@@ -1,0 +1,21 @@
+.header{
+    background-color: rgb(70, 70, 70);
+}
+
+.navbar{
+    display: flex;
+}
+
+.left{
+    height: auto;
+    margin-left: 30px;
+}
+
+.right{
+
+    margin-right: 30px;
+}
+
+.logo{
+    width: 80px;
+}

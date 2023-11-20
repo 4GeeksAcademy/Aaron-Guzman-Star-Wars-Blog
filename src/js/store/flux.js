@@ -12,7 +12,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+
+			people: [],
+			planets: [],
+			favorites: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,9 +41,65 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+
+			getPerson: async () => {
+
+				try {
+
+					const response = await fetch("https://swapi.dev/api/people/")
+					if (response.ok) {
+						const data = await response.json();
+						let store = getStore();
+						setStore({ ...store, people: data.results });
+						console.log(data)
+					}
+
+				}
+
+				catch (error) {
+
+					console.log("este es el error", (error))
+
+				}
+			},
+
+			getPlanets: async () => {
+
+				try {
+
+					const response = await fetch("https://swapi.dev/api/planets/")
+					if (response.ok) {
+						const data = await response.json();
+						let store = getStore();
+						setStore({ ...store, planets: data.results });
+						console.log(data)
+					}
+
+				}
+
+				catch (error) {
+
+					console.log("este es el error", (error))
+
+				}
+			},
+
+			addFavorite: (name) => {
+				const store = getStore();
+				const { favorites } = store;
+				
+			  	if (!favorites.includes(name)) {
+				  setStore({ ...store, favorites: [...favorites, name] });
+				}
+			  },
+
+			updateFavorites: (updateFavorites) => {
+				const store = getStore();
+				setStore({...store, favorites: updateFavorites})
 			}
 		}
-	};
+	}
 };
 
 export default getState;
